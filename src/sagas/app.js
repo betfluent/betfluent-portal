@@ -131,6 +131,7 @@ function* getAllPools() {
           pools
         })
       );
+      if (!pools.length) yield put(appLoading(false));
       const leagues = getUnique(pools, 'league');
       const keys = Object.keys(yield select(getAppData));
       const newLeagues = leagues.filter(l => !keys.includes(l));
