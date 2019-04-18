@@ -1,0 +1,78 @@
+$ag-icons-path: "../../node_modules/ag-grid-community/src/styles/ag-theme-material/icons/";
+
+@import "../../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "../../node_modules/ag-grid-community/src/styles/ag-theme-material/sass/ag-theme-material.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.global-link {
+  text-decoration: none;
+  color: rgba(45,177,47, 1);
+
+  &:hover{
+    color: rgba(45,177,47, 0.38)
+  }
+
+  &:visited {
+    color: rgba(45,177,47, 1);
+  }
+}
+
+.global-details {
+  margin: 0 32px;
+  padding: 32px 0;
+  flex-shrink: 0;
+}
+
+.global-grid {
+  width: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 32px;
+}
+
+.global-detail-grid {
+  width: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 32px 32px;
+}
+
+.global-logo {
+  background-image: url('./assets/betfluent-logo.png');
+  height: 36px;
+  width: 348px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 32px
+}
+
+.global-logo-login {
+  background-image: url('./assets/betfluent-logo.png');
+  height: 48px;
+  width: 256px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 auto 48px;
+}

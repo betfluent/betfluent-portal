@@ -1,0 +1,33 @@
+.global-stats-wrapper {
+  display: flex;
+  padding: 32px 0;
+  width: 100%;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.global-stats {
+  display: flex;
+  max-width: 1164px;
+  flex-shrink: 0;
+  flex-grow: 1;
+  justify-content: space-between;
+  font-size: 36px;
+  line-height: 48px;
+  color: rgba(0, 0, 0, 0.37);
+
+  &__user {
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 600;
+  }
+
+  &__deposits {
+    color: rgba(17, 204, 136, 1);
+    font-weight: 600;
+  }
+
+  &__wagers {
+    color: rgba(22, 106, 255, 1);
+    font-weight: 600;
+  }
+}

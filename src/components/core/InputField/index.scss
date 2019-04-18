@@ -1,0 +1,18 @@
+.input-field__label {
+  color: rgb(45,177,47) !important;
+}
+
+.input-field__underline {
+
+  &:hover:before {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.87) !important;
+  }
+
+  &:before {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  }
+
+  &:after {
+    border-bottom: 2px solid rgb(45,177,47);
+  }
+}

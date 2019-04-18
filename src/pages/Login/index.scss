@@ -1,0 +1,24 @@
+.global-login {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 352px;
+
+  &__field {
+    width: 100%;
+    height: 78px;
+  }
+
+  &__button {
+    width: 100%;
+  }
+
+  &__error {
+    position: absolute;
+    text-align: center;
+    color: rgb(213, 0, 0);
+    margin-top: 16px;
+    width: 100%;
+  }
+}

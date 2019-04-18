@@ -1,0 +1,38 @@
+.pool {
+  &-name {
+    font-size: 32px;
+    line-height: 48px;
+  }
+
+  &-manager {
+    color: rgba(22, 106, 255, 1);
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  &-details {
+    color: rgba(22, 106, 255, 1);
+    line-height: 24px;
+  }
+
+  &-time {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.54);
+    line-height: 24px;
+  }
+
+  &-stats {
+    color: rgba(0, 0, 0, 0.54);
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  &-wagered {
+    color: rgba(17, 204, 136, 1);
+  }
+}
+
+.pool-detail-placeholder {
+  flex-shrink: 0;
+  height: 32px;
+}

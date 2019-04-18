@@ -1,0 +1,60 @@
+.user {
+  &-name {
+    font-size: 32px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-promote {
+    display: flex;
+    align-items: center;
+    width: 184px;
+  }
+
+  &-manager {
+    color: rgba(22, 106, 255, 1);
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  &-details {
+    color: rgba(22, 106, 255, 1);
+    line-height: 24px;
+  }
+
+  &-email {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.54);
+    line-height: 24px;
+  }
+
+  &-dob {
+    color: rgba(213, 0, 0, 0.87);
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  &-address {
+    color: rgba(0, 0, 0, 0.54);
+    line-height: 24px;
+  }
+
+  &-amounts {
+    color: rgba(0, 0, 0, 0.54);
+    line-height: 24px;
+  }
+
+  &-deposits {
+    color: rgba(17, 204, 136, 1);
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  &-win {
+    font-weight: 600;
+    line-height: 24px;
+    color: rgba(22, 106, 255, 1);
+  }
+}
