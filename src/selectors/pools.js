@@ -48,9 +48,10 @@ export const getPoolDetail = createSelector(
         .filter(user => user.investments && Object.keys(user.investments).includes(pool.id))
         .map(user => ({ ...user, ...userIdentities[user.id] }))
         .map(user => {
-          const timeOfWager = wagers.sort((a, b) => b.time - a.time).find(w => {
+          let timeOfWager = wagers.sort((a, b) => b.time - a.time).find(w => {
             return w.userId === user.publicId && w.fundId === pool.id;
-          }).time;
+          });
+          timeOfWager = timeOfWager && timeOfWager.time;
           user.timeOfWager = moment(timeOfWager).format('MM/DD/YYYY [@] hh:mm a');
           user.contribution = user.investments[pool.id] / 100;
           return user;
