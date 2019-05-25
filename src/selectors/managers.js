@@ -28,8 +28,11 @@ export const getManagerData = createSelector(
       }, 0) / (manager.poolsCreated || 1);
 
       manager.totalEarnings = managerPools.reduce((sum, pool) => {
-        return sum + (pool.status === 'RETURNED' && pool.amountReturned > pool.amountWagered
-          ? ((pool.amountReturned - pool.amountWagered) / 100) * (pool.percentFee / 100) * (pool.pctOfFeeCommission / 100)
+        return sum + (pool.status === 'RETURNED'
+          ? ((
+              (pool.amountReturned > pool.amountWagered ? pool.amountReturned - pool.amountWagered : 0) +
+              (pool.fadeReturned > pool.fadeAmountWagered ? pool.fadeReturned - pool.fadeAmountWagered : 0)
+            ) / 100) * (pool.percentFee / 100) * (pool.pctOfFeeCommission / 100)
           : 0)
       }, 0);
       manager.totalWins = managerBets.reduce((sum, bet) => {

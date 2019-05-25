@@ -1,16 +1,5 @@
 import moment from 'moment';
 
-export const useGridOptions = (params, options) => {
-  options.forEach(option => option(params));
-}
-
-export const useLastNameValue = (params) => {
-  params.processCellCallback = function(params) {
-    return params.value.last;
-  };
-  params.api.exportDataAsCsv(params);
-}
-
 export const autoSize = ({ columnApi }) => {
   const allColumnIds = [];
   columnApi.getAllColumns().forEach((column) => {
