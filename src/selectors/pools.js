@@ -11,9 +11,9 @@ export const getPoolData = createSelector(
     const poolData = Object.keys(pools).map(k => pools[k]).map(p => {
       const pool = { ...p };
       const manager = managers[pool.managerId] || {};
-      pool.name = { name: pool.name, id: pool.id };
+      pool.name = { name: pool.name, id: pool.id }; 
       pool.managerName = manager.name;
-      pool.wagered = pool.amountWagered / 100;
+      pool.wagered = (pool.amountWagered + (pool.fadeAmountWagered || 0)) / 100;
       pool.createdTime = moment(pool.createdTimeMillis).format('MM/DD/YYYY [@] hh:mm a');
       pool.closeTime = moment(pool.closingTime * 1000).format('MM/DD/YYYY [@] hh:mm a');
       pool.returnTime = moment(pool.returnTimeMillis).format('MM/DD/YYYY [@] hh:mm a');
@@ -40,7 +40,7 @@ export const getPoolDetail = createSelector(
       pool.createdTime = moment(pool.createdTimeMillis).format('MM/DD/YYYY [@] hh:mm a');
       pool.closeTime = moment(pool.closingTime * 1000).format('MM/DD/YYYY [@] hh:mm a');
       pool.returnTime = moment(pool.returnTimeMillis).format('MM/DD/YYYY [@] hh:mm a');
-      pool.wagered = pool.amountWagered / 100;
+      pool.wagered = (pool.amountWagered + pool.fadeAmountWagered) / 100;
       pool.cap = pool.maxBalance / 100;
       pool.min = pool.minInvestment / 100;
       pool.max = pool.maxInvestment / 100;
@@ -56,7 +56,8 @@ export const getPoolDetail = createSelector(
           user.contribution = user.investments[pool.id] / 100;
           return user;
         });
-      const wagersArr = [...(pool.wagers && Object.keys(pool.wagers).map(w => bets[w] || {})) || [], ...(pool.wagers && Object.keys(pool.fadeWagers).map(w => bets[w] || {})) || []];
+      const wagersArr = [...(pool.wagers && Object.keys(pool.wagers).map(w => bets[w] || {})) || [], ...(pool.fadeWagers && Object.keys(pool.fadeWagers).map(w => bets[w] || {})) || []];
+      
       pool.wagersArr = wagersArr.map(w => {
         const game = (appData[w.gameLeague] && appData[w.gameLeague][w.gameId]) || {};
         w.createdTime = moment(w.createdTimeMillis).format('MM/DD/YYYY [@] hh:mm a');

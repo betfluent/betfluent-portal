@@ -11,12 +11,12 @@ export const getManagerData = createSelector(
     const managerData = Object.keys(managers).map(k => managers[k]).map(m => {
       const manager = { ...m };
       const managerPools = Object.keys(pools).map(k => pools[k]).filter(p => p.managerId === manager.id && !p.isTraining);
-      const managerBets = Object.keys(bets).map(k => bets[k]).filter(b => b.managerId === manager.id);
+      const managerBets = Object.keys(bets).map(k => bets[k]).filter(b => b.managerId === manager.id && !b.fade);
 
       manager.name = { name: manager.name, id: manager.id };
 
       manager.amountRaised = managerPools.reduce((sum, pool) => {
-        return sum + (pool.amountWagered / 100);
+        return sum + ((pool.amountWagered + pool.fadeAmountWagered) / 100);
       }, 0);
 
       manager.poolsCreated = managerPools.reduce((sum) => {
@@ -24,7 +24,7 @@ export const getManagerData = createSelector(
       }, 0);
 
       manager.averagePoolSize = managerPools.reduce((sum, pool) => {
-        return sum + pool.playerCount;
+        return sum + (pool.playerCount || 0) + (pool.fadePlayerCount || 0);
       }, 0) / (manager.poolsCreated || 1);
 
       manager.totalEarnings = managerPools.reduce((sum, pool) => {
