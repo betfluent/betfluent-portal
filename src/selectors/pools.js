@@ -56,7 +56,7 @@ export const getPoolDetail = createSelector(
           user.contribution = user.investments[pool.id] / 100;
           return user;
         });
-      const wagersArr = (pool.wagers && Object.keys(pool.wagers).map(w => bets[w] || {})) || [];
+      const wagersArr = [...(pool.wagers && Object.keys(pool.wagers).map(w => bets[w] || {})) || [], ...(pool.wagers && Object.keys(pool.fadeWagers).map(w => bets[w] || {})) || []];
       pool.wagersArr = wagersArr.map(w => {
         const game = (appData[w.gameLeague] && appData[w.gameLeague][w.gameId]) || {};
         w.createdTime = moment(w.createdTimeMillis).format('MM/DD/YYYY [@] hh:mm a');

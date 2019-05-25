@@ -5,6 +5,7 @@ import GlobalStats from '../../components/core/GlobalStats';
 import { getBetData } from '../../selectors/bets';
 import { autoSize, dateComparator, currencyFormatter } from '../../utils';
 import 'ag-grid-enterprise';
+import './index.scss';
 
 const columnDefs = [
   {headerName: "Date/Time of Bet", field: "createdTime", filter: 'agDateColumnFilter', comparator: dateComparator},
@@ -22,6 +23,10 @@ const columnDefs = [
   {headerName: "Manager Name", field: "managerName"}
 ];
 
+const rowClassRules = {
+  'is-fade': ({ data }) => data.fade
+}
+
 const Bets = ({ bets }) => {
   if (!bets) return null;
   return (
@@ -33,6 +38,7 @@ const Bets = ({ bets }) => {
           defaultColDef = {{ resizable: true, sortable: true, filter: true }}
           rowData={bets}
           onGridReady={autoSize}
+          rowClassRules={rowClassRules}
         />
       </div>
     </>

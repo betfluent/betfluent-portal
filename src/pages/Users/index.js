@@ -31,9 +31,10 @@ const IsManager = ({ value }) => {
       disabled
     />
   )
-}
+}   
 
 const columnDefs = [
+  {headerName: "Join Date", field: "date"},
   {headerName: "First Name", field: "first"},
   {headerName: "Last Name", field: "last", cellRenderer: 'linkRenderer', comparator: comparator, keyCreator: nameKeyCreator},
   {headerName: "Address", field: "address"},

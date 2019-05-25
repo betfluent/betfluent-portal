@@ -21,6 +21,7 @@ export const getUserData = createSelector(
       user.realBalance = user.balance / 100;
       user.totalDeposits = deposits.filter(d => d.userId === user.id).reduce((sum, item) => sum + item.amount, 0) / 100;
       user.isManager = !!user.managerId;
+      user.date = moment(user.joinDate).format('MM/DD/YYYY [@] hh:mm a');
       return user;
     });
     return userData;
